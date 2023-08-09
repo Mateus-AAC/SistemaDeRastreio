@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Rastrear Pedidos</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Rastreamento de Pedidos</h1>
+        <form action="/rastrear" method="get">
+            <input type="text" name="c" placeholder="Digite o código do pedido para rastrear" autocomplete="off">
+            <button type="submit">Rastrear</button>
+        </form>
+        <main>
+            <% if (mensagem) { %>
+                <p class="mensagem-erro"><%= mensagem %></p>
+            <% } else if (eventos && eventos.length > 0) { %>
+                <h2>Informações de Rastreamento:</h2>
+                <% eventos.forEach(evento => { %>
+                    <div class="evento">
+                        <p class="descricao"><%= evento.descricao %></p>
+                        <p><%= new Date(evento.dtHrCriado).toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' }) %></p>
+                        <% if (evento.unidade) { %>
+                            <p><%= evento.unidade.tipo %> <%= evento.unidade.endereco.uf %></p>
+                        <% } %>
+                    </div>
+                <% }) %>
+            <% } else if (eventos && eventos.length === 0) { %>
+                <p>Nenhum evento de rastreamento disponível para o código inserido.</p>
+            <% } else { %>
+                <p class="nenhum-evento">Nenhum evento de rastreamento disponível.</p>
+            <% } %>
+        </main>
+    </div>
+</body>
+</html>
