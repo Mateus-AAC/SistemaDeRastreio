@@ -1,19 +1,57 @@
 body {
     font-family: Arial, sans-serif;
+    background-image: url('../img/wallpaper.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    position: relative;
 }
 
 .container {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 100px auto;
     padding: 20px;
-    background-color: #f5f5f5;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.5); 
 }
 
 h1 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    font-size: 36px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(0, 179, 179, 0.8), 0 0 20px rgba(0, 179, 179, 0.8), 0 0 30px rgba(0, 179, 179, 0.8);
+}
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(85, 85, 85);
+}
+
+.logo {
+    font-size: 24px;
+    text-decoration: none;
+    margin: 5px 10px 10px 0px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(36, 0, 179, 0.8), 0 0 20px rgba(0, 179, 179, 0.8), 0 0 30px rgba(0, 179, 179, 0.8);
 }
 
 form {
@@ -22,21 +60,30 @@ form {
 }
 
 main {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 h2 {
     margin-bottom: 10px;
+    color: rgb(0, 179, 179);
 }
 
+
 .evento {
-    border: 1px solid #ccc;
+    border: 1px solid rgb(85, 85, 85);
     padding: 10px;
     margin-bottom: 15px;
     border-radius: 5px;
+    background-color: rgb(34, 34, 34);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start; 
+    width: 500px; 
 }
 
 .evento p {
@@ -45,42 +92,51 @@ h2 {
 
 .nenhum-evento {
     text-align: center;
-    color: #777;
+    color: rgb(119, 119, 119);
 }
 
 .descricao {
-   color: green;
+    color: rgb(0, 204, 204);
 }
 
 .mensagem-erro {
-    color: red;
+    color: rgb(255, 0, 0);
     font-weight: bold;
-}
-
-form {
-    text-align: center;
-    margin-bottom: 20px;
 }
 
 input[type="text"] {
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid rgb(119, 119, 119);
     border-radius: 5px;
     font-size: 16px;
     width: 60%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     display: inline-block;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid rgb(119, 119, 119);
+    border-radius: 5px;
+    font-size: 16px;
+    width: 60%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    background-color: white; 
+    color: black; 
 }
 
 button[type="submit"] {
     padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
+    background-color: rgb(0, 179, 179);
+    color: white;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s;
     display: inline-block;
     vertical-align: middle;
@@ -88,5 +144,33 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: rgb(0, 128, 128);
+}
+
+.logo {
+    color: rgb(0, 179, 179);
+    font-size: 24px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: rgb(0, 128, 128);
 }

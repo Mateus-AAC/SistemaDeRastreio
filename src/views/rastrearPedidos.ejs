@@ -3,34 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/caixa.png" type="image/x-icon">
     <link rel="stylesheet" href="/css/styles.css">
-    <title>Rastrear Pedidos</title>
+    <title>BUSCA E ACHA</title>
 </head>
 <body>
+    <div class="navbar">
+        <a href="/" class="logo">📦 Busca e Acha</a>
+    </div>
     <div class="container">
-        <h1>Rastreamento de Pedidos</h1>
+        <h1>Rastreie suas encomendas de forma gratuita</h1>
         <form action="/rastrear" method="get">
-            <input type="text" name="c" placeholder="Digite o código do pedido para rastrear" autocomplete="off">
-            <button type="submit">Rastrear</button>
+            <input type="text" name="c" placeholder="Código de rastreamento" autocomplete="off">
+            <button type="submit">Pesquisar</button>
         </form>
         <main>
             <% if (mensagem) { %>
-                <p class="mensagem-erro"><%= mensagem %></p>
+                <div class="erros">
+                    <p class="mensagem-erro"><%= mensagem %></p>
+                </div>
             <% } else if (eventos && eventos.length > 0) { %>
-                <h2>Informações de Rastreamento:</h2>
-                <% eventos.forEach(evento => { %>
-                    <div class="evento">
-                        <p class="descricao"><%= evento.descricao %></p>
-                        <p><%= new Date(evento.dtHrCriado).toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' }) %></p>
-                        <% if (evento.unidade) { %>
-                            <p><%= evento.unidade.tipo %> <%= evento.unidade.endereco.uf %></p>
-                        <% } %>
-                    </div>
-                <% }) %>
+                <div class="container-de-eventos">
+                    <% eventos.forEach(evento => { %>
+                        <div class="evento">
+                            <p class="descricao"><%= evento.descricao %></p>
+                            <p><%= new Date(evento.dtHrCriado).toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' }) %></p>
+                            <% if (evento.unidade) { %>
+                                <p><%= evento.unidade.tipo %> <%= evento.unidade.endereco.uf %></p>
+                            <% } %>
+                        </div>
+                    <% }) %>
+                </div>
             <% } else if (eventos && eventos.length === 0) { %>
                 <p>Nenhum evento de rastreamento disponível para o código inserido.</p>
             <% } else { %>
-                <p class="nenhum-evento">Nenhum evento de rastreamento disponível.</p>
+                <p></p>
             <% } %>
         </main>
     </div>
